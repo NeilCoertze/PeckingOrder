@@ -1,0 +1,65 @@
+TODO FIRST:
+
+## 1. Use cosine similarity to generate "best action" when there is only one card left to play
+## 2. Figure out how to write equations based on cosine similarity for more than one card left
+## 3. Figure out which equations are strictly necessary
+
+TODO LATER:
+
+
+
+IDEAS/QUESTIONS:
+
+In limited bidding, there is incentive to play random moves every turn, so that the opponent does 
+not learn what you will play. The game is sequential, but there may not be a necessarily optimal
+set of moves 
+
+Semi-random moves -> an agent knows a list of all state-pair-payoffs that are "optimal" 
+                    -> this is determined through the pearson correlation 
+                    -> an action is selected that will increase the pearson correlation towards 
+                    -> the "best state" (i.e. the state with the greatest payoff).
+                    -> if there are multiple actions that will yield a similar payoff, then an action
+                    -> is selected randomly among all the possible actions. 
+                    -> For ToM0 agents, the optimal action will always be played
+                    -> For ToM1 agents, they believe their opponent will expect them to play an optimal action
+
+Questions:
+    - Playing randomly towards the second half of the games doesn't seem optimal
+        e.g. In the following game, there is clearly an optimal move for both players.
+             They might tie, but this is better than losing. Regardless of their opponents 
+             move, they are incentivsed to play optimally. 
+
+            x 2 3 x
+            x 2 3 x 
+
+            1 2 3 4 TIED
+            1 2 3 4 
+
+            4 2 3 1 TIED
+            4 2 3 1
+
+            4 2 3 1 
+            1 2 3 4 WINNER
+
+            1 2 3 4 WINNER
+            4 2 3 1 
+
+
+OLD Questions"
+
+1. What does the value function look like? 
+2. Is it worth to try and make rock-paper-scissors
+
+For Pecking Order:
+
+1. How are board states represented? 
+    - Graph Theory : Nodes and vertices
+        - Nodes represent states, vertices represent estimated value of state
+
+2. How are values estimated for states?
+    - Use backwards induction? -> may be overcomplex for now
+    - Cosine similarity
+        - https://en.wikipedia.org/wiki/Cosine_similarity
+        - https://stackoverflow.com/questions/14720324/compute-the-similarity-between-two-lists
+    - Jaccard Distance/Jaccard Index?
+
